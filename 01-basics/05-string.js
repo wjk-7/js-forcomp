@@ -7,4 +7,5 @@ let stri2 = "world"
 // console.log(stri1.endsWith("i",2))
 let word = "fox"
 // console.log(`this sentence has ${sentence.includes(word) ? 'yes' : 'no'} in it` )
-console.log(sentence.replaceAll(" ","-"))
+// console.log(sentence.replaceAll(" ","-"))
+console.log(sentence.split(" "))
