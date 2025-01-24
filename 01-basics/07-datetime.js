@@ -1,0 +1,7 @@
+let mydate = new Date()
+// console.log(mydate)
+// console.log(mydate.toDateString())
+// console.log(mydate.getHours())
+let datefornow =  Date.now()
+// console.log(mydate.getMilliseconds())
+console.log(Math.floor(datefornow / 3600000))
