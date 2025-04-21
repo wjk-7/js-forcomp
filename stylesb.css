@@ -1,0 +1,91 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #444;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 22px;
+}
+
+.btn {
+    background: #ff5733;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #ffcc00;
+}
+
+main {
+    padding: 20px;
+}
+
+.package {
+    margin: 30px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.package img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #444;
+    color: #fff;
+}

@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jadoo Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    body {
+    margin: 0;
+    padding: 0;
+}
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: transparent;
+    flex-wrap: wrap;
+  }
+
+  .logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    line-height: 27.2px;
+    transition: color 0.3s;
+  }
+
+    .nav-links a:hover {
+        color: #f47a60;
+    }
+  
+  .signup {
+    border: 1px solid #333;
+    padding: 6px 12px;
+    border-radius: 5px;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      margin-top: 15px;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  .btn-text img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+
+    .btn-text img:hover {
+        transform: scale(1.1);
+    }
+
+    .btn-text {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 27.2px;
+        color: rgb(94, 98, 130);
+        margin-bottom: 20px;
+
+    }
+
+    .hero-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 40px;
+    background-color: transparent;
+    min-height: 60vh;
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+
+  .hero-text {
+    max-width: 50%;
+  }
+
+  .hero-text h1 {
+    font-family: 'Volkhov', serif;
+    font-size: 52px;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 span {
+    color: #f47a60;
+    position: relative;
+  }
+
+  .hero-text h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #f47a60;
+    border-radius: 5px;
+  }
+
+  .hero-text p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  .hero-text .btn {
+    padding: 12px 24px;
+    background: linear-gradient(to right, #faae42, #ff5722);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .hero-text .btn:hover {
+    transform: scale(1.05);
+  }
+
+  section {
+    padding: 50px 40px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 36px;
+    margin: 50px 0 20px;
+    font-family: 'Volkhov', serif;
+  }
+
+  .services {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 10%;
+    flex-wrap: wrap;
+  }
+
+  .service {
+    text-align: center;
+    flex: 1 1 200px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .top-destinations {
+    padding: 50px 10%;
+  }
+
+  .destinations {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .destination {
+    flex: 1 1 250px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  .destination:hover {
+    transform: scale(1.03);
+  }
+
+  .destination img {
+    width: 100%;
+    display: block;
+  }
+
+  .destination-info {
+    padding: 15px;
+    background: #fff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .left {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .left h4 {
+    font-size: 16px;
+    color: #5E6282;
+    margin-bottom: 10px;
+  }
+
+  .left h2 {
+    font-family: 'Volkhov', serif;
+    font-size: 42px;
+    color: #181E4B;
+    margin-bottom: 30px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .step:hover {
+    transform: translateX(10px);
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step:nth-child(1) .icon-box {
+    background-color: #F0BB1F;
+  }
+
+  .step:nth-child(2) .icon-box {
+    background-color: #F15A2B;
+  }
+
+  .step:nth-child(3) .icon-box {
+    background-color: #006380;
+  }
+
+  .step-content h5 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #5E6282;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: #5E6282;
+  }
+
+  .right {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    max-width: 350px;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-body h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .card-body small {
+    color: #5E6282;
+  }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .icon-circle {
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .people {
+    color: #5E6282;
+    font-size: 14px;
+  }
+
+  .trip-progress {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 10px 60px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 240px;
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  .trip-progress img {
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .progress-info {
+    flex: 1;
+  }
+
+  .progress-info p {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .progress-bar {
+    background: #E5E5E5;
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: #8A79DF;
+    height: 100%;
+    width: 40%;
+    animation: progressFill 2s ease;
+  }
+
+  .terminals {
+    background-color: transparent;
+    padding: 20px;
+
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .terminal {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: rgb(94, 98, 130);
+  }
+
+  .text-people {
+    font-family: Volkhov, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #181E4B;
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: start;
+  }
+
+  .testimonial-text {
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 27.2px;
+    color: rgb(94, 98, 130);
+    margin-bottom: 20px;
+    text-align: start;
+    
+    margin-top: 30px;
+  }
+
+  .testimonials-section {
+    background-color: transparent;
+
+    display: flex;
+    width: 100%;
+    padding: 20px 10%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    gap: 200px;
+  }
+
+  .testimonials-container {
+    background-color: transparent;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.096);
+    text-align: start;
+    font-family: Poppins, sans-serif;
+font-size: 15px;
+font-weight: 400;
+line-height: 27.2px;
+color: rgb(94, 98, 130);
+font-weight: bold;
+transition: transform 1s ease;
+    }
+
+    .testimonials-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    }
+
+    .brand-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 10%;
+    }
+
+    .quote-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: -50px;
+    top: -20px;
+    width: 100%;
+    height: 100%;
+    }
+
+    .quote-icon {
+    font-size: 40px;
+    color: #f47a60;
+    position: absolute;
+    }
+
+    .brands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    background-color: transparent;
+    padding: 50px 10%;
+    }
+
+    .brands img {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    transition: transform 0.8s ease;
+    }
+
+    .brands img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .subscribe-section {
+    padding: 80px 40px;
+    color: #5e6282;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 16px;
+    box-shadow: inset 0 5px 30px rgba(0, 0, 0, 0.096);
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+        .subscribe-section {
+            padding: 40px 20px;
+        }
+        .subscribe-section h2 {
+            font-size: 24px;
+        }
+        .subscribe-form input[type="email"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .subscribe-form button {
+            width: 100%;
+        }
+
+        .subscribe-form {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+    }
+
+    .subscribe-section h2 {
+        font-family: Poppins, sans-serif;
+font-size: 25.6px;
+font-weight: 500;
+line-height: 33.28px;
+color: rgb(94, 98, 130);
+    }
+
+    .subscribe-form {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+
+    }
+
+    .subscribe-form input[type="email"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 300px;
+        font-size: 16px;
+        font-family: Poppins, sans-serif;
+font-weight: 500;
+line-height: 27.2px;
+color: rgb(94, 98, 130);
+        transition: border-color 0.3s;
+    }
+
+    .subscribe-form input[type="email"]:focus {
+        border-color: #f47a60;
+        outline: none;
+    }
+
+    .subscribe-form input[type="email"]::placeholder {
+        color: #ccc;
+    }
+
+    .subscribe-form input[type="email"]:focus::placeholder {
+        color: #f47a60;
+    }
+
+    .subscribe-form input[type="email"]::placeholder {
+        font-family: Poppins, sans-serif;
+font-size: 16px;
+font-weight: 500;
+line-height: 27.2px;
+color: rgb(94, 98, 130);
+    }
+
+    .subscribe-form button {
+        padding: 10px 20px;
+        background: linear-gradient(to right, #faae42, #ff5722);
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: Poppins, sans-serif;
+font-weight: 500;
+line-height: 27.2px;
+        transition: transform 0.3s;
+    }
+
+    .subscribe-form button:hover {
+        transform: scale(1.05);
+    }
+
+    .footer {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px 20px;
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 27.2px;
+      }
+      
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      
+      .footer-column {
+        flex: 1;
+        min-width: 150px;
+      }
+      
+      .brand h2 {
+        font-size: 40px;
+        font-weight: bold;
+      }
+      
+      .brand .dot {
+        color: #333;
+      }
+      
+      .brand p {
+        margin-top: 50px;
+        color: gray;
+        max-width: 200px;
+        font-family: Poppins, sans-serif;
+        font-weight: 550;
+      }
+      
+      .footer-column h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+      
+      .footer-column a {
+        display: block;
+
+        text-decoration: none;
+        margin-bottom: 8px;
+        font-size: 15px;
+        color: gray;
+        font-family: Poppins, sans-serif;
+        font-weight: 550;
+        line-height: 27.2px;
+        transition: color 0.3s;
+      }
+
+        .footer-column a:hover {
+            color: rgb(94, 98, 130);
+        }
+      
+      .apps {
+        text-align: center;
+      }
+      
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 10px;
+      }
+      
+      .icon {
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      
+      .store-buttons img {
+        height: 30px;
+        margin: 0 5px;
+        width: auto;
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: baseline;
+        align-items: center;
+        transition: transform 0.3s;
+      }
+
+        .store-buttons img:hover {
+            transform: scale(1.05);
+        }
+      
+      .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        color: #666;
+        font-size: 14px;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      
+        .footer-column {
+          min-width: 100%;
+        }
+      
+        .store-buttons img {
+          height: 35px;
+        }
+      }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-text, .hero-image {
+      max-width: 100%;
+    }
+
+    .services, .destinations {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+    }
+
+    @media (max-width: 480px) {
+        .hero-text h1 {
+            font-size: 36px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 28px;
+        }
+
+        .services, .destinations {
+            gap: 20px;
+        }
+
+        .service, .destination {
+            flex: 1 1 100%;
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes progressFill {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 40%;
+        }
+    }
+    @media (max-width: 768px) {
+        .trip-progress {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .trip-progress img {
+            margin-bottom: 10px;
+        }
+    }
+    @media (max-width: 480px) {
+        .trip-progress {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .trip-progress img {
+            width: 30px;
+        }
+    }
+    @media (max-width: 768px) {
+        .testimonials-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonials-container {
+            max-width: 100%;
+        }
+    }
+    @media (max-width: 480px) {
+        .testimonials-container {
+            padding: 15px;
+        }
+    }
+    @media (max-width: 768px) {
+        .brands {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .brands img {
+            max-width: 80px;
+        }
+    }
+    @media (max-width: 480px) {
+        .brands img {
+            max-width: 60px;
+        }
+    }
+    @media (max-width: 768px) {
+        .text-people {
+            font-size: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 480px) {
+        .text-people {
+            font-size: 24px;
+        }
+
+        .testimonial-text {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 768px) {
+        .terminal {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 480px) {
+        .terminal {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 768px) {
+        .people {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 480px) {
+        .people {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 768px) {
+        .card-body h4 {
+            font-size: 16px;
+        }
+
+        .card-body small {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 480px) {
+        .card-body h4 {
+            font-size: 14px;
+        }
+
+        .card-body small {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 768px) {
+        .step-content h5 {
+            font-size: 14px;
+        }
+
+        .step-content p {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 480px) {
+        .step-content h5 {
+            font-size: 12px;
+        }
+
+        .step-content p {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 768px) {
+        .step {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step-content {
+            text-align: left;
+        }
+    }
+    @media (max-width: 480px) {
+        .step {
+            margin-bottom: 15px;
+        }
+    }
+    @media (max-width: 768px) {
+        .left h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .left h2 {
+            font-size: 28px;
+        }
+    }
+    @media (max-width: 768px) {
+        .left h4 {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 480px) {
+        .left h4 {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 768px) {
+        .left {
+            text-align: center;
+        }
+
+        .right {
+            text-align: center;
+        }
+    }
+    @media (max-width: 480px) {
+        .left {
+            margin-bottom: 20px;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 {
+            font-size: 36px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text h1 {
+            font-size: 28px;
+        }
+
+        .hero-text p {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text .btn {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-image {
+            margin-top: 20px;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-image {
+            margin-top: 10px;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 span::after {
+            width: 50%;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text h1 span::after {
+            width: 40%;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 span::after {
+            width: 50%;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text h1 span::after {
+            width: 40%;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 span::after {
+            width: 50%;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text h1 span::after {
+            width: 40%;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 span::after {
+            width: 50%;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-text h1 span::after {
+            width: 40%;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-text h1 span::after {
+            width: 50%;
+        }
+    }
+</style>
+<body background="shadow.png">
+
+    <div style="background-image: url('https://uploads-ssl.webflow.com/6170700f1a1db6b3a0ac16ed/617938d02c4de5b992e1941a_yellow-side.svg'); background-repeat: no-repeat; background-size: cover; background-position: 500px; padding: 20px 0;">
+
+      <header class="navbar">
+        <div class="logo"><img src="https://jadoo-travel-web.netlify.app/logo.svg" alt=""></div>
+        <nav class="nav-links">
+          <a href="#">Destinations</a>
+          <a href="#">Hotels</a>
+          <a href="#">Flights</a>
+          <a href="#">Bookings</a>
+          <a href="#">Logins</a>
+          <a href="#" class="signup">Sign up</a>
+          <a href="#">EN</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Travel, <span>enjoy</span><br> and live a new <br> and full life</h1>
+      <p>Built Wicket longer admire do barton vanity itself do in it. Preferred to sportsmen it engrossed listening.</p>
+        <button class="btn">Find out more</button>
+      <div class="btn-text">
+        <img src="https://jadoo-travel-web.netlify.app/play-btn.svg" alt="">
+        <span class="demo">Play demo</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://jadoo-travel-web.netlify.app/travel.png" alt="Traveler" style="width: 100%; max-width: 400px;" />
+    </div>
+  </section>
+    </div>
+
+  <section>
+    <h2 class="section-title">We Offer Best Services</h2>
+    <div class="services">
+      <div class="service">
+        <img src="https://jadoo-travel-web.netlify.app/weather.svg" width="60" />
+        <h4>Calculated Weather</h4>
+        <p>Built Wicket longer admire do barton vanity itself do in it.</p>
+      </div>
+      <div class="service">
+        <img src="https://jadoo-travel-web.netlify.app/flight.svg" width="60" />
+        <h4>Best Flights</h4>
+        <p>Engrossed listening. Park gate sell they west hard for the.</p>
+      </div>
+      <div class="service">
+        <img src="https://jadoo-travel-web.netlify.app/mic.png" width="60" />
+        <h4>Local Events</h4>
+        <p>Barton vanity itself do in it. Preferred to men it engrossed listening.</p>
+      </div>
+      <div class="service">
+        <img src="https://jadoo-travel-web.netlify.app/setting.svg" width="60" />
+        <h4>Customization</h4>
+        <p>We deliver outsourced aviation services for military customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="top-destinations">
+    <h2 class="section-title">Top Destinations</h2>
+    <div class="destinations">
+      <div class="destination">
+        <img src="https://jadoo-travel-web.netlify.app/rome.jpeg" alt="Rome">
+        <div class="destination-info">
+          <h4>Rome, Italy - $5200</h4>
+          <p>10 days trip</p>
+        </div>
+      </div>
+      <div class="destination">
+        <img src="https://jadoo-travel-web.netlify.app/london.jpeg" alt="London">
+        <div class="destination-info">
+          <h4>London, UK - $4200</h4>
+          <p>12 days ago</p>
+        </div>
+      </div>
+      <div class="destination">
+        <img src="https://jadoo-travel-web.netlify.app/macedonia.jpeg" alt="Macedonia">
+        <div class="destination-info">
+          <h4>Macedonia - $15000</h4>
+          <p>28 days trip</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="container">
+    <!-- Left -->
+    <div class="left">
+      <h4>Easy and Fast</h4>
+      <h2>Book your Next Trip<br>in 3 Easy steps</h2>
+
+      <div class="step">
+        <div class="icon-box">
+          <img src="https://jadoo-travel-web.netlify.app/icon1.svg" width="24" alt="">
+        </div>
+        <div class="step-content">
+          <h5>Choose Destination</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon-box">
+          <img src="https://jadoo-travel-web.netlify.app/icon2.svg" width="24" alt="">
+        </div>
+        <div class="step-content">
+          <h5>Choose Destination</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon-box">
+          <img src="https://jadoo-travel-web.netlify.app/icon3.svg" width="24" alt="">
+        </div>
+        <div class="step-content">
+          <h5>Choose Destination</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="right">
+      <div class="card">
+        <img src="https://jadoo-travel-web.netlify.app/greece.png" alt="Greece"/>
+        <div class="card-body">
+          <h4>Trip To Greece</h4>
+          <small>14–29 June | by Robbin joseph</small>
+
+          <div class="icons">
+            <div class="https://jadoo-travel-web.netlify.app/icon-circle">🗺️</div>
+            <div class="https://jadoo-travel-web.netlify.app/icon-circle">🧭</div>
+            <div class="https://jadoo-travel-web.netlify.app/icon-circle">📍</div>
+          </div>
+
+          <p class="people">📊 24 people going</p>
+        </div>
+      </div>
+
+      <div class="trip-progress">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/800px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" alt="">
+        <div class="progress-info">
+          <p>Trip to rome</p>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <small style="color:#8A79DF;">40% completed</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials-section">
+     <div class="testimonials">
+    <div class="testimonial">
+        <h3>Testimonials</h3>
+    </div>
+    <h1 class="text-people">What People Say
+        About Us</h1>
+  </div>
+
+  <div class="testimonials-container">
+    <div class="testimonial-card">
+        <div class="quote-icon-container">
+            <img src="https://jadoo-travel-web.netlify.app/mike.png" alt="Quote" class="quote-icon">
+        </div>
+        <p class="testimonial-text">
+            “On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.”
+        </p>
+        <div style="margin-top: 40px; text-align: start;">
+            <h3>Mike Taylor</h3>
+        <p>
+            Lahore, Pakistan
+        </p>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <br><br><br>
+
+  <div class="brands-section">
+    <div class="brands">
+        <div class="brand_logo"><img src="axon.png" alt=""></div>
+        <div class="brand_logo"><img src="jetstar.png" alt=""></div>
+        <div class="brand_logo"><img src="expedia.png" alt=""></div>
+        <div class="brand_logo"><img src="qantas.png" alt=""></div>
+        <div class="brand_logo"><img src="alitalia.png" alt=""></div>
+    </div>
+  </div>
+
+  <div class="subscribe-section" style="background-image: url('https://uploads-ssl.webflow.com/6170700f1a1db6b3a0ac16ed/61828f18eaf01a8a5607b02c_circles-graphics-rotate.svg');">
+    <div class="subscribe-text">
+        <h2>Subscribe to get information, latest news and other interesting offers about Cobham</h2>
+    </div>
+    <div class="subscribe-form">
+        <input class="subscriibe-form_input w-input" maxlength="256" name="email" data-name="Email" placeholder="Enter Your Email" type="email" id="email" required="">
+        <button class="btn">Subscribe</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column brand">
+        <h2>Jadoo<span class="dot">.</span></h2>
+        <p>Book your trip in minute, get full control for much longer.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <br><br>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Mobile</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <br><br>
+        <a href="#">Help / FAQ</a>
+        <a href="#">Press</a>
+        <a href="#">Affiliates</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>More</h4>
+        <br><br>
+        <a href="#">Airline fees</a>
+        <a href="#">Airline</a>
+        <a href="#">Low fare tips</a>
+      </div>
+
+      <div class="footer-column apps">
+        <div class="social-icons">
+          <span class="icon"><img src="https://jadoo-travel-web.netlify.app/fb.svg" alt=""></span>
+          <span class="icon"><img src="https://jadoo-travel-web.netlify.app/ig.png" alt=""></span>
+          <span class="icon"><img src="https://jadoo-travel-web.netlify.app/ttr.svg" alt=""></span>
+        </div>
+        <p>Discover our app</p>
+        <div class="store-buttons">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Apple Store" />
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>All rights reserved@jadoo.co</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+
+        toggle.classList.toggle('active');
+        if (nav.classList.contains('active')) {
+            toggle.innerHTML = '&times;'; // Change to 'X' when active
+        } else {
+            toggle.innerHTML = '&#9776;'; // Change back to hamburger icon
+        }
+    });
+  </script>
+</body>
+</html>
